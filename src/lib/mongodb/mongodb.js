@@ -7,7 +7,7 @@ if (!MONGODB_URI) {
 
 
 
-const StartServer = async () => {
+export const StartServer = async () => {
   try {
     await mongoose.connect(MONGODB_URI);
     console.log('Connected to MongoDB');
@@ -18,6 +18,6 @@ const StartServer = async () => {
 }
 
 
-(async () => {
-  await StartServer();  
-})();
+// (async () => {
+//   await StartServer();  
+// })();
