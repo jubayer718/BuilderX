@@ -25,13 +25,13 @@ export default function SignUpPage() {
       setLoading(false);
 
       if (res.ok) {
-        alert("✅ Account created successfully!");
+        alert(" Account created successfully!");
         router.push("/login");
       } else {
         setError(data.error || "Something went wrong");
       }
     } catch (err) {
-      console.error("❌ Signup failed:", err);
+      console.error(" Signup failed:", err);
       setError("Failed to connect to the server");
       setLoading(false);
     }

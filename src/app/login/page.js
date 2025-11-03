@@ -18,7 +18,7 @@ export default function LoginPage() {
                 password: formData.get("password"),
                 redirectTo: "/builder",
               });
-              console.log("✅ Sign-in success:", res);
+              console.log(" Sign-in success:", res);
             
           }}
           className="space-y-5"
