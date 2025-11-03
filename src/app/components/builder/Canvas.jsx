@@ -36,6 +36,7 @@ export default function Canvas({ components, setComponents }) {
   };
 
   const handleRemove = (id) => {
+    console.log("Removed component with id:", id);
     setComponents(components.filter((c) => c !== id));
   };
 
@@ -43,7 +44,7 @@ export default function Canvas({ components, setComponents }) {
     <div
       ref={setNodeRef}
       className={`flex-1 min-h-screen p-6 transition-all  ${
-        isOver ? "bg-blue-50" : "bg-white"
+        isOver ? "bg-blue-200" : "bg-white"
       }`}
     >
       <h2 className="text-lg font-semibold mb-4 text-gray-600">Live Preview</h2>
@@ -68,6 +69,8 @@ export default function Canvas({ components, setComponents }) {
               <SortableItem key={idx} id={id} onRemove={handleRemove} />
             ))}
           </div>
+
+         
         </SortableContext>
       </DndContext>
     </div>

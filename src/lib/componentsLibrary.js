@@ -1,4 +1,4 @@
-// src/lib/componentsLibrary.js
+
 export const componentsLibrary = [
   {
     id: "navbar",

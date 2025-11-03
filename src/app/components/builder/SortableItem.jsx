@@ -1,7 +1,7 @@
 
 import { CSS } from "@dnd-kit/utilities";
 import { componentsLibrary } from "@/lib/componentsLibrary";
-import { useState } from "react";
+
 import { useSortable } from "@dnd-kit/sortable";
 export default function SortableItem({ id, onRemove }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
@@ -15,6 +15,14 @@ export default function SortableItem({ id, onRemove }) {
   if (!Comp) return null;
 
   return (
+    <div>
+      <button
+        onClick={() => onRemove(id)}
+        className="absolute z-40  right-5 text-red-500 text-sm cursor-pointer"
+      >
+        ✕
+      </button>
+    
     <div
       ref={setNodeRef}
       style={style}
@@ -22,13 +30,10 @@ export default function SortableItem({ id, onRemove }) {
       {...listeners}
       className="border rounded-lg p-2 shadow-sm bg-gray-50 relative"
     >
-      <button
-        onClick={() => onRemove(id)}
-        className="absolute top-2 right-2 text-red-500 text-sm"
-      >
-        ✕
-      </button>
-      <Comp />
+      <div className="border-3 border-red-600">
+        <Comp />
+     </div>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,8 @@ import "./globals.css";
 import { SessionProviderWrapper } from "@/utils/sessionProvider";
 import { StartServer } from "@/lib/mongodb/mongodb";
 import { Toaster } from "react-hot-toast";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +31,7 @@ export default async function RootLayout({ children }) {
       >
         <SessionProviderWrapper>
           <Toaster/>
-          {children}
+          {children}   
         </SessionProviderWrapper>
       </body>
     </html>
