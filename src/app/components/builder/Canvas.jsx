@@ -43,7 +43,7 @@ export default function Canvas({ components, setComponents }) {
   return (
     <div
       ref={setNodeRef}
-      className={`flex-1 min-h-screen p-6 transition-all  ${
+      className={`flex-1  p-6 transition-all  ${
         isOver ? "bg-blue-200" : "bg-white"
       }`}
     >

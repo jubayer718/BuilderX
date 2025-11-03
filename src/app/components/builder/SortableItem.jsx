@@ -30,7 +30,7 @@ export default function SortableItem({ id, onRemove }) {
       {...listeners}
       className="border rounded-lg p-2 shadow-sm bg-gray-50 relative"
     >
-      <div className="border-3 border-red-600">
+      <div className="">
         <Comp />
      </div>
       </div>
