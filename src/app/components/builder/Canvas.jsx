@@ -12,42 +12,12 @@ import {
 import {
   arrayMove,
   SortableContext,
-  useSortable,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-import { componentsLibrary } from "@/lib/componentsLibrary";
-import { useState } from "react";
+import SortableItem from "./SortableItem";
 
-function SortableItem({ id, onRemove }) {
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id });
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-  };
 
-  const Comp = componentsLibrary.find((c) => c.id === id)?.component;
-  if (!Comp) return null;
 
-  return (
-    <div
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
-      className="border rounded-lg p-2 shadow-sm bg-gray-50 relative"
-    >
-      <button
-        onClick={() => onRemove(id)}
-        className="absolute top-2 right-2 text-red-500 text-sm"
-      >
-        ✕
-      </button>
-      <Comp />
-    </div>
-  );
-}
 
 export default function Canvas({ components, setComponents }) {
   const { setNodeRef, isOver } = useDroppable({ id: "canvas" });
@@ -72,7 +42,7 @@ export default function Canvas({ components, setComponents }) {
   return (
     <div
       ref={setNodeRef}
-      className={`flex-1 min-h-screen p-6 transition-all ${
+      className={`flex-1 min-h-screen p-6 transition-all  ${
         isOver ? "bg-blue-50" : "bg-white"
       }`}
     >
@@ -93,9 +63,9 @@ export default function Canvas({ components, setComponents }) {
           items={components}
           strategy={verticalListSortingStrategy}
         >
-          <div className="space-y-4">
-            {components.map((id) => (
-              <SortableItem key={id} id={id} onRemove={handleRemove} />
+          <div className="space-y-4 ">
+            {components.map((id, idx) => (
+              <SortableItem key={idx} id={id} onRemove={handleRemove} />
             ))}
           </div>
         </SortableContext>

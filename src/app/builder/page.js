@@ -4,6 +4,7 @@ import { DndContext } from "@dnd-kit/core";
 import Sidebar from "@/app/components/builder/Sidebar";
 import Canvas from "@/app/components/builder/Canvas";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export default function BuilderPage() {
   const [components, setComponents] = useState([]);
@@ -35,7 +36,7 @@ export default function BuilderPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ components }),
     });
-    alert("✅ Layout saved successfully!");
+    toast.success(" Layout saved successfully!");
   };
 
   return (
